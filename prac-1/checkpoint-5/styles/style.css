@@ -9,18 +9,18 @@ header {
     padding: 10px;
 }
 
-nav ul {
+header nav ul {
     list-style-type: none;
     margin: 10px 0px;
     padding: 0;
 }
 
-nav ul li {
+header nav ul li {
     display: inline;
     margin: 10px;
 }
 
-nav ul li a {
+header nav ul li a {
     color: #fff;
     text-decoration: none;
 }
@@ -29,7 +29,9 @@ nav ul li a:hover {
     color: #ff0;
 }
 
-
+#welcome {
+    padding: 20px;
+}
 /* Index page specific style */
 #welcome a {
     color: #0202ee;
@@ -124,7 +126,7 @@ footer {
     border-color: #263238;
 }
  
-#contact-me input[type="submit"] {
+#contact-me input[type="Submit"] {
     border: none;
     font-weight: bold;
     text-transform: uppercase;
@@ -136,5 +138,3 @@ footer {
 #contact-me input[type="Submit"]:hover {
     background-color: #c68711;
 }
-
-
