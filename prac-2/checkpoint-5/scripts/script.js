@@ -9,12 +9,72 @@ let playerSequence = [];
 let round = 0;
 let isSimonTurn = false;
 
+const gameButtons = document.querySelectorAll('.game-btn');
+
+const scoreMessage = document.getElementById('score-message');
+const highScoreMessage = document.getElementById('high-score');
+
+let highScore = 0;
 
 startButton.addEventListener('click', () => {
     startButton.disabled = true;
     playSimonSequence();
 });
 
+gameButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        handleButtonClick(index);
+    });
+});
+
+function handleButtonClick(colourIndex) {
+    if (!isSimonTurn) {
+        const colour = colors[colourIndex];
+        playerSequence.push(colour);
+        
+        const button = document.getElementById(`btn${colourIndex + 1}`);
+        button.style.opacity = '0.5';
+        
+        setTimeout(() => {
+            button.style.opacity = '1';
+            checkPlayerSequence();
+        }, 300);
+    }
+}
+
+function checkPlayerSequence() {
+    for (let i = 0; i < playerSequence.length; i++) {
+        if (playerSequence[i] !== gameSequence[i]) {
+            gameOver();
+            return;
+        }
+    }
+
+    if (playerSequence.length === gameSequence.length) {
+        setTimeout(() => {
+            round++;
+            statusMessage.textContent = "Correct!";
+            setTimeout(() => {
+                playSimonSequence();
+            }, 1000);
+        }, 500);
+    }
+}
+
+function gameOver() {
+    statusMessage.textContent = "Game Over!";
+    scoreMessage.textContent = `Previous Score: ${round}`;
+    
+    if (round > highScore) {
+        highScore = round;
+        highScoreMessage.textContent = `High Score: ${highScore}`;
+    }
+
+    // Reset game state
+    round = 0;
+    gameSequence = [];
+    startButton.disabled = false;
+}
 
 function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;

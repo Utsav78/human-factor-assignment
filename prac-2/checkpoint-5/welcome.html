@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Utsav Budathoki">
+    <title>Welcome to the Simple Simon Game</title>
+    <link rel="stylesheet" href="../checkpoint-4/styles/style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Simple Simon Game</h1>
+        <p>Please fill in the details to start playing the game.</p>
+
+
+    </header>
+    <main>
+        <section>
+
+            <form id = "player-form" method="GET" action="game.html">
+                <div id = "form-card">
+                    <label for="name">What is your name:</label>
+                    <input type="text" class="form-item"  id="name" name="name" required>
+        
+                    <label for="age">What is your age:</label>
+                    <input type="number" class="form-item" id="age" name="age" min="10" max="100" required>
+        
+                    <label for="email">What is your email address:</label>
+                    <input type="email" class="form-item" id="email" name="email" required>
+                </div>
+                
+                <input class="quiz-button" type="submit" value="Begin">
+            </form>
+        </section>
+
+    </main>
+
+
+
+    
+</body>
+</html>
