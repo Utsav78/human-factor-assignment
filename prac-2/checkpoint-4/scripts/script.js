@@ -3,6 +3,7 @@ const statusMessage = document.getElementById('status-message');
 
 const playerName = new URLSearchParams(window.location.search).get('name');
 const colors = ["red", "green", "blue", "yellow"];
+console.log(colors.length)
 
 let gameSequence = [];
 let playerSequence = [];
